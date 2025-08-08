@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Resume - Start Bootstrap Theme</title>
+        <meta name="author" content="Alejandro Gutiérrez Sanjurjo" />
+        <title>Currículum - Alejandro Gutiérrez Sanjurjo</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,6 +14,136 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Estilos para el chat, se pueden mover a styles.css-->
+        <style>
+            #chat-widget {
+                position: fixed;
+                bottom: 40px;
+                right: 32px;
+                width: 340px;
+                max-height: 440px;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(61, 61, 61, 0.18);
+                display: none;
+                flex-direction: column;
+                z-index: 9999;
+                font-family: 'Muli', sans-serif;
+                backdrop-filter: blur(6px);
+                border: 1px solid #eee;
+            }
+            #chat-widget-icon {
+                position: fixed;
+                bottom: 40px;
+                right: 32px;
+                width: 56px;
+                height: 56px;
+                background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%);
+                border-radius: 50%;
+                box-shadow: 0 8px 32px rgba(61, 61, 61, 0.18);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                cursor: pointer;
+                transition: box-shadow 0.2s;
+            }
+            #chat-hint {
+                position: fixed;
+                bottom: 100px;
+                right: 40px;
+                background: #bd5d38;
+                color: #fff;
+                padding: 8px 14px;
+                border-radius: 12px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                font-weight: 600;
+                font-family: 'Muli', sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                z-index: 9998;
+                user-select: none;
+            }
+            #chat-messages {
+                flex: 1;
+                min-height: 300px;
+                overflow-y: auto;
+                padding: 16px 18px;
+                font-size: 1em;
+                scrollbar-width: thin;
+                scrollbar-color: #bd5d38 #f5f5f5;
+                background-color: #f9f9f9;
+            }
+            .chat-message {
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                max-width: 85%;
+                word-wrap: break-word;
+            }
+            .chat-message.user {
+                margin-left: auto;
+                align-items: flex-end;
+            }
+            .chat-message.bot {
+                margin-right: auto;
+                align-items: flex-start;
+            }
+            .chat-message .author {
+                font-weight: bold;
+                font-size: 0.9em;
+                margin-bottom: 4px;
+                color: #555;
+            }
+            .chat-message .content {
+                padding: 10px 14px;
+                border-radius: 18px;
+                line-height: 1.4;
+            }
+            .chat-message.user .content {
+                background-color: #bd5d38;
+                color: #fff;
+                border-bottom-right-radius: 4px;
+            }
+            .chat-message.bot .content {
+                background-color: #e5e5ea;
+                color: #333;
+                border-bottom-left-radius: 4px;
+            }
+            .chat-form {
+                display: flex;
+                border-top: 1px solid #eee;
+                padding: 10px 14px;
+                gap: 8px;
+                background: rgba(245, 245, 245, 0.85);
+                border-radius: 0 0 16px 16px;
+            }
+            #chat-input {
+                flex: 1;
+                padding: 10px 14px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 1em;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+            #chat-input:focus {
+                border-color: #bd5d38;
+            }
+            .chat-form button {
+                background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%);
+                color: #fff;
+                border: none;
+                padding: 0 22px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(189, 93, 56, 0.08);
+                transition: background 0.2s;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -58,7 +188,7 @@
                         Me considero una persona proactiva, con capacidad de adaptación y un fuerte compromiso con la excelencia en el trabajo. Busco constantemente oportunidades para aprender y mejorar, tanto a nivel personal como profesional. Estoy abierto a nuevos retos y colaboraciones que me permitan seguir desarrollándome en el apasionante mundo de la tecnología y la ingeniería.
                     </p>
                     <div class="social-icons">
-                        <a class="social-icon" href="www.linkedin.com/in/alejandro-gutiérrez-sanjurjo-967a7b162"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/alejandro-gutiérrez-sanjurjo-967a7b162"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/alexgutsan"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
@@ -113,8 +243,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Agosto 2019 - Diciembre 2022</span></div>
                     </div>
-                    <!-- Separador entre categorías-->
-                    <div class="my-4"></div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Business technology analyst (RPA)</h3>
@@ -129,9 +257,7 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Enero 2019 - Agosto 2019</span></div>
                     </div>
-                    <!-- Separador entre categorías-->
-                    <div class="my-4"></div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Beca prácticas VIM FCA</h3>
                             <div class="subheading mb-3">Verallia</div>
@@ -144,8 +270,6 @@
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Julio 2018 - Octubre 2018</span></div>
                     </div>
-                    <!-- Separador entre categorías-->
-                    <div class="my-4"></div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Product manager</h3>
@@ -167,31 +291,24 @@
                             <div class="subheading mb-3">Máster Universitario</div>
                             <div>Ingeniería industrial en Robótica y Percepción</div>
                             <p>Máster Universitario habilitante para el ejercicio de la profesión en ingeniería industrial.</p>
-                            <ul></ul>
-                            Beneficiario de la beca Erasmus 2017/2018 en Finlandia, para terminar dichos estudios.
+                            <p>Beneficiario de la beca Erasmus 2017/2018 en Finlandia, para terminar dichos estudios.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Enero 2018 - Septiembre 2018</span></div>
                     </div>
-                    <!-- Separador entre categorías-->
-                    <div class="my-4"></div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
                             <div class="subheading mb-3">Máster Universitario</div>
                             <div>Ingeniería industrial en Robótica y Percepción</div>
-                            <p></p>
                             <p>Este Máster está regulado por la Orden CIN/311/2009, de 9 de febrero, por la que se establecen los requisitos para la verificación de los títulos universitarios oficiales que habiliten para el ejercicio de la profesión de Ingeniero Industrial. Incluye las especializaciones en: Robótica y Percepción, y Generación y distribución inteligente de energía.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Septiembre 2016 - Septiembre 2018</span></div>
                     </div>
-                    <!-- Separador entre categorías-->
-                    <div class="my-4"></div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
                             <div class="subheading mb-3">Grado Universitario</div>
                             <div>Grado en Ingeniería Electrónica y Automática Industrial</div>
-                            <p></p>
                             <p>El Grado en Ingeniería en Electrónica y Automática Industrial proporciona profesionales con conocimientos científicos, técnicos y habilidades prácticas en las distintas áreas de la ingeniería de carácter industrial, tanto para la explotación de las posibilidades actuales y futuras del estado de las diferentes disciplinas como para la incorporación a la investigación y desarrollo de la ingeniería electrónica en la industria. Se trata de crear expertos en tecnologías robóticas, autómatas, microprocesadores y microcontroladores, instrumentación electrónica, informática industrial, electrónica de potencia; todo ello aplicado al campo de la automatización y el control de procesos industriales.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Septiembre 2011 - Septiembre 2016</span></div>
@@ -347,101 +464,158 @@
                 </div>
             </section>
         </div>
-        <!-- Dudas-->
+        <!-- Chat Widget-->
         <div id="chat-widget-icon" style="position: fixed; bottom: 40px; right: 32px; width: 56px; height: 56px; background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%); border-radius: 50%; box-shadow: 0 8px 32px rgba(61, 61, 61, 0.18); display: flex; align-items: center; justify-content: center; z-index: 9999; cursor: pointer; transition: box-shadow 0.2s" onclick="document.getElementById('chat-widget').style.display='flex'; hideHint();" tabindex="0" role="button" aria-label="Abrir chat"><i class="fas fa-comments" style="color: #fff; font-size: 1.7em"></i></div>
-        <!-- Texto con flecha apuntando al icono (abajo a la izquierda, ejemplo)-->
+        <!-- Texto con flecha apuntando al icono-->
         <div id="chat-hint" style="position: fixed; bottom: 100px; right: 40px; background: #bd5d38; color: #fff; padding: 8px 14px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); font-weight: 600; font-family: 'Muli', sans-serif; display: flex; align-items: center; gap: 8px; cursor: pointer; z-index: 9998; user-select: none" onclick="document.getElementById('chat-widget').style.display='flex'; hideHint();">
             <span>¿Quieres saber más? Pregunta aquí</span>
             <span style="display: inline-block; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #bd5d38"></span>
         </div>
-        <!-- Modern Chat Widget-->
-        <div id="chat-widget-icon" style="position: fixed; bottom: 40px; right: 32px; width: 56px; height: 56px; background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%); border-radius: 50%; box-shadow: 0 8px 32px rgba(61, 61, 61, 0.18); display: flex; align-items: center; justify-content: center; z-index: 9999; cursor: pointer; transition: box-shadow 0.2s" onclick="document.getElementById('chat-widget').style.display='flex';"><i class="fas fa-comments" style="color: #fff; font-size: 1.7em"></i></div>
-        <div id="chat-widget" style="position: fixed; bottom: 40px; right: 32px; width: 340px; max-height: 440px; background: rgba(255, 255, 255, 0.95); border-radius: 16px; box-shadow: 0 8px 32px rgba(61, 61, 61, 0.18); display: none; flex-direction: column; z-index: 9999; font-family: 'Muli', sans-serif; backdrop-filter: blur(6px); border: 1px solid #eee">
-            <!-- Encabezado del chat: tres partes con flex-->
+        <!-- Chat Widget Container-->
+        <div id="chat-widget">
+            <!-- Encabezado del chat-->
             <div style="background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%); color: #fff; padding: 18px 24px; border-radius: 16px 16px 0 0; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; position: relative">
-                <!-- Icono a la izquierda (opcional)-->
                 <span style="position: absolute; left: 24px; display: flex; align-items: center; gap: 8px"><i class="fas fa-comments" style="font-size: 1.2em"></i></span>
-                <!-- Texto centrado-->
                 <span>Chat</span>
-                <!-- Botón cerrar a la derecha-->
                 <button id="chat-close" type="button" style="background: none; border: none; color: #fff; font-size: 1.2em; cursor: pointer; position: absolute; right: 24px" title="Minimizar chat"><i class="fas fa-minus"></i></button>
             </div>
-            <div id="chat-messages" style="flex: 1; min-height: 300px; overflow-y: auto; padding: 16px 18px; font-size: 1em; scrollbar-width: thin; scrollbar-color: #bd5d38 #f5f5f5"></div>
-            <form id="chat-form" style="display: flex; border-top: 1px solid #eee; padding: 10px 14px; gap: 8px; background: rgba(245, 245, 245, 0.85); border-radius: 0 0 16px 16px">
-                <input id="chat-input" type="text" placeholder="Escribe tu pregunta..." style="flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; outline: none; transition: border-color 0.2s" />
-                <button type="submit" style="background: linear-gradient(90deg, #bd5d38 60%, #ff7e5f 100%); color: #fff; border: none; padding: 0 22px; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(189, 93, 56, 0.08); transition: background 0.2s"><i class="fas fa-paper-plane"></i></button>
+            <!-- Contenedor de mensajes-->
+            <div id="chat-messages"></div>
+            <!-- Formulario de entrada-->
+            <form class="chat-form" id="chat-form">
+                <input id="chat-input" type="text" placeholder="Escribe tu pregunta..." />
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
+        <!-- JavaScript-->
         <script>
-            // Simple toggle logic sin jQuery
-            const icon = document.getElementById('chat-widget-icon');
-            const widget = document.getElementById('chat-widget');
-            const closeBtn = document.getElementById('chat-close');
+            // Lógica simple para mostrar/ocultar el widget del chat y la pista inicial
+            const chatIcon = document.getElementById('chat-widget-icon');
+            const chatWidget = document.getElementById('chat-widget');
+            const chatCloseBtn = document.getElementById('chat-close');
+            const chatHint = document.getElementById('chat-hint');
 
-            icon.onclick = () => {
-                widget.style.display = 'flex';
+            function hideHint() {
+                if (chatHint) {
+                    chatHint.style.display = 'none';
+                }
+            }
+
+            chatIcon.onclick = () => {
+                chatWidget.style.display = 'flex';
                 document.getElementById('chat-input').focus();
+                hideHint();
             };
 
-            closeBtn.onclick = () => {
-                widget.style.display = 'none';
+            if (chatHint) {
+                chatHint.onclick = () => {
+                    chatWidget.style.display = 'flex';
+                    document.getElementById('chat-input').focus();
+                    hideHint();
+                };
+            }
+
+            chatCloseBtn.onclick = () => {
+                chatWidget.style.display = 'none';
             };
-        </script>
-        <!-- Capturar el texto del chat y enviar al backend-->
-        <script>
+
+            // Lógica principal del chat
             const form = document.getElementById('chat-form');
             const input = document.getElementById('chat-input');
-            const messages = document.getElementById('chat-messages');
+            const messagesContainer = document.getElementById('chat-messages');
 
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
+            let conversationHistory = [];
 
-                const prompt = input.value.trim();
-                if (!prompt) return;
+            function addMessage(author, text, isTyping = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message', author.toLowerCase());
 
-                // Mostrar el mensaje del usuario en el chat
+                const authorSpan = document.createElement('span');
+                authorSpan.classList.add('author');
+                authorSpan.textContent = author === 'Tú' ? 'Tú' : 'Asistente IA';
+
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('content');
+                contentDiv.innerHTML = text;
+
+                if (isTyping) {
+                    messageDiv.id = 'typing-indicator';
+                    contentDiv.innerHTML = 'está escribiendo...';
+                    contentDiv.style.fontStyle = 'italic';
+                } else {
+                    contentDiv.style.fontStyle = 'normal';
+                }
+
+                messageDiv.appendChild(authorSpan);
+                messageDiv.appendChild(contentDiv);
+                messagesContainer.appendChild(messageDiv);
+
+                scrollToBottom();
+                return messageDiv;
+            }
+
+            function scrollToBottom() {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            async function sendMessage(prompt) {
+                // Mostrar el mensaje del usuario y guardarlo en el historial
                 addMessage('Tú', prompt);
+                conversationHistory.push({ role: 'user', parts: [{ text: prompt }] });
+
                 input.value = '';
                 input.disabled = true;
 
+                // Mostrar indicador de "escribiendo..."
+                const typingIndicator = addMessage('Bot', 'está escribiendo...', true);
+
                 try {
-                    // Llamada POST a tu backend
                     const res = await fetch('https://backend-gemini-b6ih.onrender.com/chat', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ prompt }),
+                        body: JSON.stringify({
+                            prompt,
+                            history: conversationHistory,
+                        }),
                     });
 
-                    if (!res.ok) throw new Error('Error en la respuesta del servidor');
+                    // Eliminar el indicador de "escribiendo..."
+                    typingIndicator.remove();
+
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.error || 'Error en la respuesta del servidor');
+                    }
 
                     const data = await res.json();
+                    const botResponse = data.response || 'No hay respuesta.';
 
-                    // Mostrar la respuesta del bot
-                    addMessage('Bot', data.response || 'No hay respuesta');
+                    // Mostrar la respuesta del bot y guardarla en el historial
+                    addMessage('Bot', botResponse);
+                    conversationHistory.push({ role: 'model', parts: [{ text: botResponse }] });
                 } catch (error) {
-                    addMessage('Bot', 'Error al obtener respuesta del servidor.');
                     console.error(error);
+                    const existingTypingIndicator = document.getElementById('typing-indicator');
+                    if (existingTypingIndicator) {
+                        existingTypingIndicator.remove();
+                    }
+                    addMessage('Bot', `Error: ${error.message}`);
                 } finally {
                     input.disabled = false;
                     input.focus();
                     scrollToBottom();
                 }
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const prompt = input.value.trim();
+                if (prompt) {
+                    sendMessage(prompt);
+                }
             });
-
-            // Función para añadir mensajes al chat
-            function addMessage(who, text) {
-                const messageElem = document.createElement('div');
-                messageElem.style.marginBottom = '10px';
-                messageElem.innerHTML = `<strong>${who}:</strong> ${text}`;
-                messages.appendChild(messageElem);
-            }
-
-            // Auto scroll al último mensaje
-            function scrollToBottom() {
-                messages.scrollTop = messages.scrollHeight;
-            }
         </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
