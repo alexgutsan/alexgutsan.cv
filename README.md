@@ -1,2 +1,0 @@
-# alexgutsan.cv
-Curriculum Vitae
