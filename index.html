@@ -630,6 +630,7 @@
             </form>
         </div>
         <!-- JavaScript-->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
             // Lógica simple para mostrar/ocultar el widget del chat y la pista inicial
             const chatIcon = document.getElementById('chat-widget-icon');
@@ -678,12 +679,19 @@
 
                 const contentDiv = document.createElement('div');
                 contentDiv.classList.add('content');
-                contentDiv.innerHTML = text;
 
-                if (isTyping) {
-                    messageDiv.id = 'typing-indicator';
+                // *** Aquí es donde está el cambio clave ***
+                // Usamos marked.parse() para convertir el Markdown a HTML
+                if (!isTyping) {
+                    contentDiv.innerHTML = marked.parse(text);
+                } else {
                     contentDiv.innerHTML = 'está escribiendo...';
                     contentDiv.style.fontStyle = 'italic';
+                }
+
+                // El resto del código de la función permanece igual
+                if (isTyping) {
+                    messageDiv.id = 'typing-indicator';
                 } else {
                     contentDiv.style.fontStyle = 'normal';
                 }
