@@ -143,6 +143,47 @@
                 box-shadow: 0 2px 8px rgba(189, 93, 56, 0.08);
                 transition: background 0.2s;
             }
+            /* Contenedor del selector de idioma */
+            .language-switcher {
+                position: fixed; /* Lo fija en la pantalla */
+                top: 20px; /* Distancia desde la parte superior */
+                right: 20px; /* Distancia desde la parte derecha */
+                z-index: 1000; /* Asegura que esté por encima de otros elementos */
+
+                /* Estilos inspirados en tu ejemplo */
+                background-color: #f9f9f9;
+                border: 1px solid #ddd;
+                border-radius: 8px; /* Bordes redondeados */
+                padding: 8px 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+                display: flex; /* Para alinear los botones en línea */
+                gap: 8px; /* Espacio entre los botones */
+            }
+
+            /* Estilo para los botones */
+            .lang-button {
+                background-color: transparent; /* Fondo transparente por defecto */
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1em;
+                color: #333;
+                transition: all 0.3s ease;
+            }
+
+            /* Estilo para el botón activo */
+            .lang-button.active {
+                background-color: #bd5d38; /* Color naranja de tu CV */
+                color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Estilo al pasar el ratón por encima (hover) */
+            .lang-button:not(.active):hover {
+                color: #bd5d38; /* Color de tu CV al pasar el ratón */
+            }
         </style>
     </head>
     <body id="page-top">
@@ -165,6 +206,10 @@
                 </ul>
             </div>
         </nav>
+        <div class="language-switcher">
+            <button class="lang-button active" id="lang-es">Español</button>
+            <button class="lang-button" id="lang-en">English</button>
+        </div>
         <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
@@ -213,8 +258,11 @@
                     <h2 class="mb-5">Experiencia</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Data & AI Engineer</h3>
-                            <div class="subheading mb-3">Banco Santander</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/bancosantander.png" alt="Logo de Banco Santander" style="width: 30px; height: 30px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Banco Santander</h3>
+                            </div>
+                            <div class="subheading mb-3">Data & AI Engineer</div>
                             <p>Dentro del departamento de Models&Data de Santander España. Contribución a la mejora de la eficiencia operativa mediante el desarrollo de soluciones basadas en datos y optimización de procesos de negocio. Principales responsabilidades y logros:</p>
                             <ul>
                                 <li>Simplificación y automatización de informes para la red de Santander España, mejorando la eficiencia y reduciendo tiempos operativos.</li>
@@ -227,7 +275,10 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Capgemini Engineering</h3>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/capgemini.png" alt="Logo de Capgemini" style="width: 30px; height: 30px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Capgemini Engineering</h3>
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="subheading mb-3">Data Scientist</div>
                                 <div class="sub-fecha text-muted text-end" style="font-size: 0.9em">Julio 2020 - Diciembre 2022</div>
@@ -258,8 +309,11 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Business technology analyst (RPA)</h3>
-                            <div class="subheading mb-3">Indra</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/indra.png" alt="Logo de Indra" style="width: 30px; height: 30px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Indra</h3>
+                            </div>
+                            <div class="subheading mb-3">Business technology analyst (RPA)</div>
                             <p>Departamento de tecnologías avanzadas, en la división de automatización robótica de procesos. Dentro de las tareas desarrolladas, se encuentran:</p>
                             <ul>
                                 <li>Desarrollo de robots para la automatización de procesos, utilizando herramientas como UiPath, Blueprism y Kofax Kapow</li>
@@ -272,8 +326,11 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Beca prácticas VIM FCA</h3>
-                            <div class="subheading mb-3">Verallia</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/verallia.png" alt="Logo de Verallia" style="width: 30px; height: 30px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Verallia</h3>
+                            </div>
+                            <div class="subheading mb-3">Beca prácticas VIM FCA</div>
                             <p>Desarrollo y seguimiento del sistema de excelencia industrial (Verallia Industrial Model), mediante la implantación de herramientas para la mejora del control de los procesos de producción.</p>
                             <ul>
                                 <li>Desarrollo de herramientas de control de procesos, mediante la utilización de Excel y VBA.</li>
@@ -285,8 +342,11 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Product manager</h3>
-                            <div class="subheading mb-3">Visiotech</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/visiotech.png" alt="Logo de Visiotech" style="width: 30px; height: 30px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Visiotech</h3>
+                            </div>
+                            <div class="subheading mb-3">Product manager</div>
                             <p>Realización de pruebas de laboratorio y requisitos técnicos para potenciales nuevos productos CCTV. Verificación de especificaciones técnicas para control de calidad en dispositivos de Seguridad y CCTV.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Febrero 2016 - Abril 2016</span></div>
@@ -300,7 +360,10 @@
                     <h2 class="mb-5">Formación académica</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Tampere University of Technology, Finlandia</h3>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/tampere.png" alt="Logo de Tampere" style="width: 35px; height: 35px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Tampere University of Technology, Finlandia</h3>
+                            </div>
                             <div class="subheading mb-3">Máster Universitario</div>
                             <div>Ingeniería industrial en Robótica y Percepción</div>
                             <p>Máster Universitario habilitante para el ejercicio de la profesión en ingeniería industrial.</p>
@@ -310,7 +373,10 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/alcala.png" alt="Logo de Alcalá" style="width: 35px; height: 35px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
+                            </div>
                             <div class="subheading mb-3">Máster Universitario</div>
                             <div>Ingeniería industrial en Robótica y Percepción</div>
                             <p>Este Máster está regulado por la Orden CIN/311/2009, de 9 de febrero, por la que se establecen los requisitos para la verificación de los títulos universitarios oficiales que habiliten para el ejercicio de la profesión de Ingeniero Industrial. Incluye las especializaciones en: Robótica y Percepción, y Generación y distribución inteligente de energía.</p>
@@ -319,7 +385,10 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
+                            <div class="d-flex align-items-center mb-2">
+                                <img class="me-3" src="assets/img/alcala.png" alt="Logo de Alcalá" style="width: 35px; height: 35px; **object-fit: cover;**" />
+                                <h3 class="mb-0">Universidad Politécnica de Alcalá de Henares, España</h3>
+                            </div>
                             <div class="subheading mb-3">Grado Universitario</div>
                             <div>Grado en Ingeniería Electrónica y Automática Industrial</div>
                             <p>El Grado en Ingeniería en Electrónica y Automática Industrial proporciona profesionales con conocimientos científicos, técnicos y habilidades prácticas en las distintas áreas de la ingeniería de carácter industrial, tanto para la explotación de las posibilidades actuales y futuras del estado de las diferentes disciplinas como para la incorporación a la investigación y desarrollo de la ingeniería electrónica en la industria. Se trata de crear expertos en tecnologías robóticas, autómatas, microprocesadores y microcontroladores, instrumentación electrónica, informática industrial, electrónica de potencia; todo ello aplicado al campo de la automatización y el control de procesos industriales.</p>
@@ -771,5 +840,45 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- JavaScript para el cambio de idioma-->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const languageButtons = document.querySelectorAll('.lang-button');
+                const languageElements = document.querySelectorAll('.lang-text');
+
+                // Función para cambiar el idioma
+                const setLanguage = (lang) => {
+                    // Actualizar el texto
+                    languageElements.forEach((el) => {
+                        // Usamos el atributo de datos para obtener el texto correcto
+                        const text = el.dataset[`lang-${lang}`];
+                        if (text) {
+                            el.innerHTML = text; // Usamos innerHTML para mantener el formato como <strong>
+                        }
+                    });
+
+                    // Actualizar el estado de los botones (clase 'active')
+                    languageButtons.forEach((btn) => {
+                        btn.classList.remove('active');
+                        if (btn.id === `lang-${lang}`) {
+                            btn.classList.add('active');
+                        }
+                    });
+                };
+
+                // Asignar el evento 'click' a cada botón
+                languageButtons.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        // El ID del botón es 'lang-es' o 'lang-en', así que extraemos el idioma
+                        const lang = btn.id.split('-')[1];
+                        setLanguage(lang);
+                    });
+                });
+
+                // Establecer el idioma inicial (el que tiene la clase 'active')
+                const initialLang = document.querySelector('.lang-button.active').id.split('-')[1];
+                setLanguage(initialLang);
+            });
+        </script>
     </body>
 </html>
