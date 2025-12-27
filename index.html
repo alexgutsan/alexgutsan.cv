@@ -652,7 +652,7 @@
                 <button id="chat-close" type="button" style="background: none; border: none; color: #fff; font-size: 1.2em; cursor: pointer; position: absolute; right: 24px" title="Minimizar chat"><i class="fas fa-minus"></i></button>
             </div>
             <!-- Contenedor de mensajes-->
-            <div id="chat-messages"></div>
+            <div id="chat-messages"><!-- Mensaje inicial de bienvenida (se mostrará solo si no hay mensajes)--></div>
             <!-- Formulario de entrada-->
             <form class="chat-form" id="chat-form">
                 <input class="lang-text" id="chat-input" type="text" placeholder="Escribe tu pregunta..." data-lang-es="Escribe tu pregunta..." data-lang-en="Type your question..." />
@@ -698,6 +698,15 @@
             const messagesContainer = document.getElementById('chat-messages');
 
             let conversationHistory = [];
+            let currentTypingInterval;
+
+            // Función para mostrar/ocultar el mensaje de bienvenida
+            function toggleWelcomeMessage() {
+                const welcomeMessage = document.getElementById('welcome-message');
+                if (welcomeMessage) {
+                    welcomeMessage.style.display = conversationHistory.length === 0 ? 'block' : 'none';
+                }
+            }
 
             function addMessage(author, text, isTyping = false) {
                 const messageDiv = document.createElement('div');
@@ -723,12 +732,34 @@
                 if (isTyping) {
                     messageDiv.id = 'typing-indicator';
                 } else {
-                    contentDiv.style.fontStyle = 'normal';
+                    // No necesitamos cambiar el estilo aquí si ya se estableció arriba
                 }
 
                 messageDiv.appendChild(authorSpan);
                 messageDiv.appendChild(contentDiv);
                 messagesContainer.appendChild(messageDiv);
+
+                scrollToBottom();
+                toggleWelcomeMessage(); // Ocultar mensaje de bienvenida al añadir un mensaje
+                return messageDiv;
+            }
+
+            function typeMessage(messageDiv, text) {
+                const contentDiv = messageDiv.querySelector('.content');
+                contentDiv.innerHTML = ''; // Limpiar el contenido antes de escribir
+                contentDiv.style.fontStyle = 'normal';
+                let i = 0;
+                const speed = 20; // Velocidad de escritura en ms
+
+                currentTypingInterval = setInterval(() => {
+                    if (i < text.length) {
+                        contentDiv.innerHTML += text.charAt(i);
+                        i++;
+                        scrollToBottom();
+                    } else {
+                        clearInterval(currentTypingInterval);
+                    }
+                }, speed);
 
                 scrollToBottom();
                 return messageDiv;
@@ -772,9 +803,13 @@
                     const data = await res.json();
                     const botResponse = data.response || 'No hay respuesta.';
 
-                    // Mostrar la respuesta del bot y guardarla en el historial
-                    addMessage('Bot', botResponse);
+                    // Mostrar la respuesta del bot con efecto de escritura
+                    const botMessageDiv = addMessage('Bot', ''); // Crear el div del mensaje vacío
+                    typeMessage(botMessageDiv, botResponse); // Iniciar el efecto de escritura
+
                     conversationHistory.push({ role: 'model', parts: [{ text: botResponse }] });
+
+                    // Limpiar el intervalo de escritura si existe
                 } catch (error) {
                     console.error(error);
                     const existingTypingIndicator = document.getElementById('typing-indicator');
@@ -782,6 +817,9 @@
                         existingTypingIndicator.remove();
                     }
                     addMessage('Bot', `Error: ${error.message}`);
+                    if (currentTypingInterval) {
+                        clearInterval(currentTypingInterval);
+                    }
                 } finally {
                     input.disabled = false;
                     input.focus();
@@ -795,6 +833,16 @@
                 if (prompt) {
                     sendMessage(prompt);
                 }
+            });
+
+            // Añadir el mensaje de bienvenida al cargar la página
+            document.addEventListener('DOMContentLoaded', () => {
+                const welcomeMessageDiv = document.createElement('div');
+                welcomeMessageDiv.id = 'welcome-message';
+                welcomeMessageDiv.style = 'text-align: center; font-style: italic; color: #888; font-size: 0.9em; padding: 10px;';
+                welcomeMessageDiv.innerHTML = `<span class="lang-text" data-lang-es="¡Hola! Soy el asistente de Alejandro y puedo ayudarte con cualquier pregunta sobre su currículum. Puedo tardar un poco en responder la primera vez." data-lang-en="Hi! I'm Alejandro's assistant, and I can help you with any questions about his resume. It might take me a little while to reply the first time."></span>`;
+                messagesContainer.prepend(welcomeMessageDiv);
+                toggleWelcomeMessage(); // Asegurarse de que se muestre si no hay historial
             });
         </script>
         <!-- Bootstrap core JS-->
